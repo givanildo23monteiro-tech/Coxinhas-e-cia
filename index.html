@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coxinhas & Cia - Salgados para Festas e Atacado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #C89B5C;
+            --dark: #5C3D2E;
+            --light: #F5F1E8;
+            --muted: #8B6F47;
+            --accent: #7A9B4D;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--light);
+            border-bottom: 1px solid #e0d5c7;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-section img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .logo-text h1 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn-orcamento {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-orcamento:hover {
+            background-color: #b8885a;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* HERO COM IMAGEM DE FUNDO */
+        .hero {
+            background: 
+                linear-gradient(rgba(92, 61, 46, 0.7), rgba(92, 61, 46, 0.5)),
+                url('salgados-variados.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+            min-height: 80vh;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-text h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-text .highlight {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 30px;
+            line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #b8885a;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+            margin-top: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .hero-image {
+            text-align: center;
+            display: none;
+        }
+
+        /* PRODUTOS */
+        .produtos {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--muted);
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .produto-card {
+            background-color: var(--light);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #e0d5c7;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .produto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .produto-imagem {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .produto-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .produto-card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .sabores {
+            margin-top: 10px;
+            font-size: 13px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .personalizacoes {
+            background-color: rgba(200, 155, 92, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(200, 155, 92, 0.2);
+        }
+
+        .personalizacoes h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .personalizacoes p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .personalizacoes ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            list-style: none;
+        }
+
+        .personalizacoes li {
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .personalizacoes li:before {
+            content: "✓";
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* DIFERENCIAIS */
+        .diferenciais {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .diferencial-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #e0d5c7;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .diferencial-card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .diferencial-imagem {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .diferencial-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .diferencial-card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .stats-box {
+            background-color: rgba(200, 155, 92, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid rgba(200, 155, 92, 0.2);
+            margin-top: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h4 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: var(--dark);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .stat-item span {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* CONTATO MELHORADO */
+        .contato {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--light) 0%, #f9f5f0 100%);
+            position: relative;
+        }
+
+        .contato::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        }
+
+        .contato-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contato-info {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary);
+        }
+
+        .contato-info h3 {
+            color: var(--dark);
+            font-size: 24px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contato-info h3 i {
+            color: var(--primary);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(200, 155, 92, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-icon i {
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        .info-content h4 {
+            color: var(--dark);
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .info-content p {
+            color: var(--muted);
+            margin-bottom: 3px;
+            font-size: 14px;
+        }
+
+        .info-content a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .info-content a:hover {
+            color: var(--dark);
+        }
+
+        .horario-funcionamento {
+            background: rgba(200, 155, 92, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .horario-funcionamento p {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .whatsapp-cta {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            margin-top: 30px;
+        }
+
+        .whatsapp-cta h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .whatsapp-cta p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .btn-whatsapp-grande {
+            background: white;
+            color: #25D366;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-whatsapp-grande:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .contato-mapa {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .contato-mapa h3 {
+            color: var(--dark);
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contato-mapa h3 i {
+            color: var(--primary);
+        }
+
+        .mapa-placeholder {
+            background: var(--light);
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 2px dashed var(--primary);
+        }
+
+        .mapa-placeholder i {
+            font-size: 50px;
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        .area-atendimento {
+            background: rgba(200, 155, 92, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .area-atendimento h4 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .area-atendimento p {
+            color: var(--muted);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .contato-destaque {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--primary);
+        }
+
+        .contato-destaque h3 {
+            color: var(--dark);
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .contato-destaque p {
+            color: var(--muted);
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        /* BOTÃO FLUTUANTE WHATSAPP */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .whatsapp-float a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-float a:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float i {
+            font-size: 30px;
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-section p {
+            color: rgba(245, 241, 232, 0.7);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section a {
+            color: rgba(245, 241, 232, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(245, 241, 232, 0.1);
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(245, 241, 232, 0.2);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-bottom p {
+            color: rgba(245, 241, 232, 0.7);
+            font-size: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: rgba(245, 241, 232, 0.7);
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 968px) {
+            .contato-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .contato-info, .contato-mapa {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h2 {
+                font-size: 32px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            .contato-info, .contato-mapa {
+                padding: 20px;
+            }
+            
+            .info-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .info-icon {
+                align-self: center;
+            }
+
+            nav.mobile-active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: var(--light);
+                padding: 20px;
+                gap: 15px;
+                border-bottom: 1px solid #e0d5c7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="logo.jpg" alt="Coxinhas & Cia">
+                    <div class="logo-text">
+                        <h1>Coxinhas & Cia</h1>
+                        <p>Salgados para Festas e Atacado</p>
+                    </div>
+                </div>
+                <nav id="nav">
+                    <a onclick="scrollToSection('home')">Home</a>
+                    <a onclick="scrollToSection('produtos')">Produtos</a>
+                    <a onclick="scrollToSection('diferenciais')">Por Que Escolher</a>
+                    <a onclick="scrollToSection('contato')">Contato</a>
+                </nav>
+                <button class="btn-orcamento" onclick="openWhatsApp('orcamento_header')">Solicitar Orçamento</button>
+                <button class="menu-toggle" id="menuToggle">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO COM IMAGEM DE FUNDO -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Salgados Artesanais de <span class="highlight">Qualidade Premium</span></h2>
+                    <p>Para festas memoráveis e negócios de sucesso. Produção artesanal com ingredientes selecionados que garantem sabor e frescor em cada salgado.</p>
+                    <p><strong>É só esquentar, já vem pronto!</strong></p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="openWhatsApp('orcamento_hero')">Solicitar Orçamento</button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('produtos')">Conhecer Produtos</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Artesanal</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Pronto</div>
+                            <div class="stat-label">É só esquentar</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">Vale do Paraíba</div>
+                            <div class="stat-label">Atendemos toda região</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section class="produtos" id="produtos">
+        <div class="container">
+            <h2 class="section-title">Nossos Produtos</h2>
+            <p class="section-subtitle">Salgados artesanais de alta qualidade para festas e revenda. É só esquentar e servir!</p>
+            
+            <div class="produtos-grid">
+                <div class="produto-card">
+                    <img src="coxinha.jpg" alt="Coxinhas" class="produto-imagem">
+                    <h3>Coxinhas</h3>
+                    <p>Massa crocante com recheios saborosos. Perfeitas para festas e lanches.</p>
+                    <div class="sabores">Sabores: Frango Tradicional e Frango com Catupiry</div>
+                </div>
+                <div class="produto-card">
+                    <img src="risole.jpg" alt="Risoles" class="produto-imagem">
+                    <h3>Risoles</h3>
+                    <p>Massa delicada com recheios variados. Crocante por fora, macio por dentro.</p>
+                    <div class="sabores">Sabores: Frango e Carne Moída</div>
+                </div>
+                <div class="produto-card">
+                    <img src="bolinha-queijo.jpg" alt="Bolinha de Queijo" class="produto-imagem">
+                    <h3>Bolinha de Queijo</h3>
+                    <p>Queijo derretido envolto em uma massa leve e crocante.</p>
+                </div>
+                <div class="produto-card">
+                    <img src="costela-queijo.jpg" alt="Costela com Queijo" class="produto-imagem">
+                    <h3>Costela com Queijo</h3>
+                    <p>Recheio suculento de costela desfiada com queijo derretido.</p>
+                </div>
+                <div class="produto-card">
+                    <img src="churros.jpg" alt="Churros" class="produto-imagem">
+                    <h3>Churros</h3>
+                    <p>Massa crocante com recheios doces irresistíveis.</p>
+                    <div class="sabores">Sabores: Chocolate e Doce de Leite</div>
+                </div>
+                <div class="produto-card">
+                    <img src="kibe.jpg" alt="Kibe" class="produto-imagem">
+                    <h3>Kibe</h3>
+                    <p>Massa de trigo com recheios saborosos. Uma opção deliciosa e diferente.</p>
+                    <div class="sabores">Sabores: Tradicional e com Queijo</div>
+                </div>
+                <div class="produto-card">
+                    <img src="enroladinho-salsicha.jpg" alt="Enroladinho de Salsicha" class="produto-imagem">
+                    <h3>Enroladinho de Salsicha</h3>
+                    <p>Massa crocante enrolada em salsicha suculenta.</p>
+                </div>
+                <div class="produto-card">
+                    <img src="bolinho-carne-seca.jpg" alt="Bolinho de Carne Seca" class="produto-imagem">
+                    <h3>Bolinho de Carne Seca</h3>
+                    <p>Carne seca desfiada temperada com ingredientes selecionados.</p>
+                    <div class="sabores">Sabores: Tradicional e com Catupiry</div>
+                </div>
+            </div>
+
+            <div class="personalizacoes">
+                <h3>Ideal para Revenda e Festas</h3>
+                <p>Todos os nossos salgados são produzidos com ingredientes selecionados e congelados para manter o sabor e qualidade. Perfeitos para:</p>
+                <ul>
+                    <li>Lanchonetes e bares</li>
+                    <li>Festas e eventos</li>
+                    <li>Buffets e restaurantes</li>
+                    <li>Atacado e revenda</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="diferenciais" id="diferenciais">
+        <div class="container">
+            <h2 class="section-title">Por Que Escolher Coxinhas & Cia?</h2>
+            <p class="section-subtitle">Somos uma empresa familiar que começou em Caçapava e agora atende todo o Vale do Paraíba.</p>
+            
+            <div class="diferenciais-grid">
+                <div class="diferencial-card">
+                    <img src="qualidade-premium.jpg" alt="Qualidade Premium" class="diferencial-imagem">
+                    <h3>Qualidade Premium</h3>
+                    <p>Utilizamos apenas ingredientes de primeira qualidade, selecionados cuidadosamente para garantir o melhor sabor em cada salgado.</p>
+                </div>
+                <div class="diferencial-card">
+                    <img src="empresa-familiar.jpg" alt="Empresa Familiar" class="diferencial-imagem">
+                    <h3>Empresa Familiar</h3>
+                    <p>Começamos como um sonho de família e hoje atendemos toda a região do Vale do Paraíba com receitas tradicionais e muito carinho.</p>
+                </div>
+                <div class="diferencial-card">
+                    <img src="entrega-rapida.jpg" alt="Entrega Rápida" class="diferencial-imagem">
+                    <h3>Entrega Rápida</h3>
+                    <p>Produção sob demanda com prazos ágeis. Entregamos frescos e prontos para esquentar em toda a região.</p>
+                </div>
+                <div class="diferencial-card">
+                    <img src="precos-competitivos.jpg" alt="Preços Competitivos" class="diferencial-imagem">
+                    <h3>Preços Competitivos</h3>
+                    <p>Oferecemos as melhores condições para compras em atacado, sem comprometer a qualidade dos nossos produtos.</p>
+                </div>
+                <div class="diferencial-card">
+                    <img src="variedade-sabores.jpg" alt="Variedade de Sabores" class="diferencial-imagem">
+                    <h3>Variedade de Sabores</h3>
+                    <p>Diversas opções de salgados para atender todos os paladares e necessidades do seu evento ou estabelecimento.</p>
+                </div>
+                <div class="diferencial-card">
+                    <img src="atendimento-personalizado.jpg" alt="Atendimento Personalizado" class="diferencial-imagem">
+                    <h3>Atendimento Personalizado</h3>
+                    <p>Equipe dedicada pronta para ajudar com sugestões, quantidades e personalizações para atender suas necessidades específicas.</p>
+                </div>
+            </div>
+
+            <div class="stats-box">
+                <h3 style="text-align: center; margin-bottom: 30px;">Nossa História</h3>
+                <p style="text-align: center; margin-bottom: 30px; font-size: 16px;">Começamos como um pequeno negócio familiar em Caçapava, com a paixão por salgados artesanais. Com muito trabalho e dedicação, expandimos nossos horizontes e hoje atendemos todo o Vale do Paraíba, levando qualidade e sabor para festas, eventos e estabelecimentos comerciais.</p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h4>100%</h4>
+                        <p>Artesanal</p>
+                        <span>Feito com dedicação</span>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Vale do Paraíba</h4>
+                        <p>Atendemos toda região</p>
+                        <span>Sede em Caçapava</span>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Pronto</h4>
+                        <p>É só esquentar</p>
+                        <span>Praticidade para você</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO MELHORADO -->
+    <section class="contato" id="contato">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <p class="section-subtitle">Estamos prontos para atender você! Fale conosco e faça seu orçamento.</p>
+            
+            <div class="contato-content">
+                <!-- Informações de Contato -->
+                <div class="contato-info">
+                    <h3><i class="fas fa-headset"></i> Fale Conosco</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>WhatsApp</h4>
+                            <p>Atendimento Rápido e Direto</p>
+                            <a href="https://wa.me/+5512992529335" target="_blank">(12)992529335</a>
+                            <div class="horario-funcionamento">
+                                <p>🕒 Atendimento: Segunda a Sexta, 8h às 18h</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Telefone</h4>
+                            <p>Para ligações tradicionais</p>
+                            <a href="tel:+5512992529335">(12)99252-9335</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>E-mail</h4>
+                            <p>Respondemos em até 2 horas</p>
+                            <a href="mailto:contato@coxinhasecia.com.br">contato@coxinhasecia.com.br</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Localização</h4>
+                            <p>Caçapava, São Paulo</p>
+                            <p><strong>Atendemos todo Vale do Paraíba</strong></p>
+                        </div>
+                    </div>
+
+                    <!-- CTA WhatsApp -->
+                    <div class="whatsapp-cta">
+                        <h4><i class="fab fa-whatsapp"></i> Orçamento Rápido</h4>
+                        <p>Clique abaixo e solicite seu orçamento diretamente pelo WhatsApp</p>
+                        <a href="https://wa.me/5512992529335?text=Olá! Gostaria de solicitar um orçamento de salgados." class="btn-whatsapp-grande" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            Solicitar Orçamento
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mapa e Área de Atendimento -->
+                <div class="contato-mapa">
+                   
+                    
+                    <div class="area-atendimento">
+                        <h4>🏠 Área de Atendimento</h4>
+                        <p><strong>Atendemos todo o Vale do Paraíba</strong></p>
+                        <p style="font-size: 13px; margin-top: 8px;">
+                            Caçapava, Taubaté, São José dos Campos, Jacareí, Pindamonhanganga, 
+                            Tremembé e toda região
+                        </p>
+                    </div>
+
+                    <div style="margin-top: 25px; padding: 20px; background: rgba(200, 155, 92, 0.05); border-radius: 10px;">
+                        <h4 style="color: var(--dark); margin-bottom: 10px; font-size: 16px; display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-shipping-fast"></i> Entregas
+                        </h4>
+                        <p style="color: var(--muted); font-size: 14px; margin: 0;">
+                            Realizamos entregas em toda a região do Vale do Paraíba. 
+                            Consulte-nos para condições especiais de entrega.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destaque Final -->
+            <div class="contato-destaque">
+                <h3>Pronto para Saborear Nossos Salgados?</h3>
+                <p>Entre em contato agora mesmo e faça seu pedido. Qualidade garantida e preço competitivo!</p>
+                <a href="https://wa.me/5512992529335?text=Olá! Gostaria de solicitar um orçamento de salgados." class="btn-whatsapp-grande" target="_blank" style="background: var(--primary); color: white;">
+                    <i class="fab fa-whatsapp"></i>
+                    Falar no WhatsApp Agora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/5512992529335?text=Olá! Gostaria de mais informações sobre os salgados." target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.jpg" alt="Coxinhas & Cia">
+                        <div>
+                            <h4>Coxinhas & Cia</h4>
+                            <p>Salgados Artesanais</p>
+                        </div>
+                    </div>
+                    <p>Empresa familiar de Caçapava atendendo todo o Vale do Paraíba com salgados de qualidade.</p>
+                    <p><strong>É só esquentar, já vem pronto!</strong></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a onclick="scrollToSection('home')">Home</a></li>
+                        <li><a onclick="scrollToSection('produtos')">Produtos</a></li>
+                        <li><a onclick="scrollToSection('diferenciais')">Por Que Escolher</a></li>
+                        <li><a onclick="scrollToSection('contato')">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p>Telefone: <a href="tel:5512992529335">(12) 3456-7890</a></p>
+                    <p>Email: <a href="mailto:contato@coxinhasecia.com.br">contato@coxinhasecia.com.br</a></p>
+                    <p>Localização: Caçapava, SP</p>
+                    <p>Atendemos: Todo Vale do Paraíba</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/5512992529335" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Coxinhas & Cia. Todos os direitos reservados.</p>
+                <div class="footer-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Serviço</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu toggle mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('mobile-active');
+        });
+
+        // Scroll suave
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+                nav.classList.remove('mobile-active');
+            }
+        }
+
+        // Função para abrir WhatsApp
+        function openWhatsApp(origem) {
+            let mensagem = "Olá! Gostaria de solicitar um orçamento de salgados.";
+            
+            // Mensagem personalizada baseada na origem do clique
+            if (origem === 'orcamento_header') {
+                mensagem = "Olá! Gostaria de solicitar um orçamento de salgados. (Cliquei no cabeçalho)";
+            } else if (origem === 'orcamento_hero') {
+                mensagem = "Olá! Gostaria de solicitar um orçamento de salgados. (Cliquei na seção principal)";
+            }
+            
+            const whatsappUrl = `https://wa.me/5512992529335?text=${encodeURIComponent(mensagem)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
