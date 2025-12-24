@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head> <meta name="google-site-verification" content="nvEbfnZKP4-vVqfy_FGHgbmZLLHgFzoFeOH2HHIyg-c" />
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -176,6 +176,7 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
+            color: var(--dark);
         }
 
         /* HERO COM IMAGEM DE FUNDO */
@@ -201,7 +202,6 @@
             align-items: center;
         }
 
-        /* MUDANÇA IMPORTANTE: h2 para h1 para SEO */
         .hero-text h1 {
             font-size: 48px;
             margin-bottom: 20px;
@@ -284,11 +284,6 @@
             color: rgba(255,255,255,0.9);
             margin-top: 5px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        .hero-image {
-            text-align: center;
-            display: none;
         }
 
         /* PRODUTOS */
@@ -416,8 +411,6 @@
             border-radius: 8px;
             border: 1px solid #e0d5c7;
             transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
             min-height: 280px;
             display: flex;
             flex-direction: column;
@@ -480,7 +473,7 @@
             font-size: 12px;
         }
 
-        /* CONTATO MELHORADO */
+        /* CONTATO */
         .contato {
             padding: 80px 0;
             background: linear-gradient(135deg, var(--light) 0%, #f9f5f0 100%);
@@ -871,6 +864,20 @@
         @media (max-width: 768px) {
             nav {
                 display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: var(--light);
+                padding: 20px;
+                gap: 15px;
+                border-bottom: 1px solid #e0d5c7;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            nav.mobile-active {
+                display: flex;
             }
 
             .menu-toggle {
@@ -920,19 +927,6 @@
             .info-icon {
                 align-self: center;
             }
-
-            nav.mobile-active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background-color: var(--light);
-                padding: 20px;
-                gap: 15px;
-                border-bottom: 1px solid #e0d5c7;
-            }
         }
     </style>
 </head>
@@ -942,31 +936,29 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo-section">
-                    <!-- ALT DA IMAGEM OTIMIZADO -->
-                    <img src="logo.jpg" alt="Coxinhas & Cia - Salgados artesanais Caçapava">
+                    <img src="logo.jpg" alt="Coxinhas & Cia - Salgados artesanais Caçapava" loading="lazy">
                     <div class="logo-text">
                         <h1>Coxinhas & Cia</h1>
                         <p>Salgados para Festas e Atacado</p>
                     </div>
                 </div>
                 <nav id="nav">
-                    <a onclick="scrollToSection('home')">Home</a>
-                    <a onclick="scrollToSection('produtos')">Produtos</a>
-                    <a onclick="scrollToSection('diferenciais')">Por Que Escolher</a>
-                    <a onclick="scrollToSection('contato')">Contato</a>
+                    <a onclick="scrollToSection('home')" role="button" tabindex="0">Home</a>
+                    <a onclick="scrollToSection('produtos')" role="button" tabindex="0">Produtos</a>
+                    <a onclick="scrollToSection('diferenciais')" role="button" tabindex="0">Por Que Escolher</a>
+                    <a onclick="scrollToSection('contato')" role="button" tabindex="0">Contato</a>
                 </nav>
                 <button class="btn-orcamento" onclick="openWhatsApp('orcamento_header')">Solicitar Orçamento</button>
-                <button class="menu-toggle" id="menuToggle">☰</button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
             </div>
         </div>
     </header>
 
-    <!-- HERO COM IMAGEM DE FUNDO -->
+    <!-- HERO -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <!-- MUDADO DE h2 PARA h1 (IMPORTANTE PARA SEO) -->
                     <h1>Salgados Artesanais de <span class="highlight">Qualidade Premium</span> em Caçapava</h1>
                     <p>Para festas memoráveis e negócios de sucesso. Produção artesanal com ingredientes selecionados que garantem sabor e frescor em cada salgado.</p>
                     <p><strong>É só esquentar, já vem pronto!</strong></p>
@@ -1000,48 +992,47 @@
             <p class="section-subtitle">Salgados artesanais de alta qualidade para festas e revenda. É só esquentar e servir!</p>
             
             <div class="produtos-grid">
-                <!-- ALT DAS IMAGENS OTIMIZADAS -->
                 <div class="produto-card">
-                    <img src="coxinha.jpg" alt="Coxinhas artesanais para festas em Caçapava" class="produto-imagem">
+                    <img src="coxinha.jpg" alt="Coxinhas artesanais para festas em Caçapava" class="produto-imagem" loading="lazy">
                     <h3>Coxinhas</h3>
                     <p>Massa crocante com recheios saborosos. Perfeitas para festas e lanches.</p>
                     <div class="sabores">Sabores: Frango Tradicional e Frango com Catupiry</div>
                 </div>
                 <div class="produto-card">
-                    <img src="risole.jpg" alt="Risoles para festas e atacado Vale do Paraíba" class="produto-imagem">
+                    <img src="risole.jpg" alt="Risoles para festas e atacado Vale do Paraíba" class="produto-imagem" loading="lazy">
                     <h3>Risoles</h3>
                     <p>Massa delicada com recheios variados. Crocante por fora, macio por dentro.</p>
                     <div class="sabores">Sabores: Frango e Carne Moída</div>
                 </div>
                 <div class="produto-card">
-                    <img src="bolinha-queijo.jpg" alt="Bolinha de queijo salgados festas Caçapava" class="produto-imagem">
+                    <img src="bolinha-queijo.jpg" alt="Bolinha de queijo salgados festas Caçapava" class="produto-imagem" loading="lazy">
                     <h3>Bolinha de Queijo</h3>
                     <p>Queijo derretido envolto em uma massa leve e crocante.</p>
                 </div>
                 <div class="produto-card">
-                    <img src="costela-queijo.jpg" alt="Costela com queijo salgados atacado" class="produto-imagem">
+                    <img src="costela-queijo.jpg" alt="Costela com queijo salgados atacado" class="produto-imagem" loading="lazy">
                     <h3>Costela com Queijo</h3>
                     <p>Recheio suculento de costela desfiada com queijo derretido.</p>
                 </div>
                 <div class="produto-card">
-                    <img src="churros.jpg" alt="Churros doces para festas Caçapava" class="produto-imagem">
+                    <img src="churros.jpg" alt="Churros doces para festas Caçapava" class="produto-imagem" loading="lazy">
                     <h3>Churros</h3>
                     <p>Massa crocante com recheios doces irresistíveis.</p>
                     <div class="sabores">Sabores: Chocolate e Doce de Leite</div>
                 </div>
                 <div class="produto-card">
-                    <img src="kibe.jpg" alt="Kibe salgados artesanais Vale do Paraíba" class="produto-imagem">
+                    <img src="kibe.jpg" alt="Kibe salgados artesanais Vale do Paraíba" class="produto-imagem" loading="lazy">
                     <h3>Kibe</h3>
                     <p>Massa de trigo com recheios saborosos. Uma opção deliciosa e diferente.</p>
                     <div class="sabores">Sabores: Tradicional e com Queijo</div>
                 </div>
                 <div class="produto-card">
-                    <img src="enroladinho-salsicha.jpg" alt="Enroladinho de salsicha para festas" class="produto-imagem">
+                    <img src="enroladinho-salsicha.jpg" alt="Enroladinho de salsicha para festas" class="produto-imagem" loading="lazy">
                     <h3>Enroladinho de Salsicha</h3>
                     <p>Massa crocante enrolada em salsicha suculenta.</p>
                 </div>
                 <div class="produto-card">
-                    <img src="bolinho-carne-seca.jpg" alt="Bolinho de carne seca atacado salgados" class="produto-imagem">
+                    <img src="bolinho-carne-seca.jpg" alt="Bolinho de carne seca atacado salgados" class="produto-imagem" loading="lazy">
                     <h3>Bolinho de Carne Seca</h3>
                     <p>Carne seca desfiada temperada com ingredientes selecionados.</p>
                     <div class="sabores">Sabores: Tradicional e com Catupiry</div>
@@ -1068,34 +1059,33 @@
             <p class="section-subtitle">Somos uma empresa familiar que começou em Caçapava e agora atende todo o Vale do Paraíba.</p>
             
             <div class="diferenciais-grid">
-                <!-- ALT DAS IMAGENS DOS DIFERENCIAIS OTIMIZADAS -->
                 <div class="diferencial-card">
-                    <img src="qualidade-premium.jpg" alt="Qualidade premium salgados artesanais Caçapava" class="diferencial-imagem">
+                    <img src="qualidade-premium.jpg" alt="Qualidade premium salgados artesanais Caçapava" class="diferencial-imagem" loading="lazy">
                     <h3>Qualidade Premium</h3>
                     <p>Utilizamos apenas ingredientes de primeira qualidade, selecionados cuidadosamente para garantir o melhor sabor em cada salgado.</p>
                 </div>
                 <div class="diferencial-card">
-                    <img src="empresa-familiar.jpg" alt="Empresa familiar salgados Caçapava" class="diferencial-imagem">
+                    <img src="empresa-familiar.jpg" alt="Empresa familiar salgados Caçapava" class="diferencial-imagem" loading="lazy">
                     <h3>Empresa Familiar</h3>
                     <p>Começamos como um sonho de família e hoje atendemos toda a região do Vale do Paraíba com receitas tradicionais e muito carinho.</p>
                 </div>
                 <div class="diferencial-card">
-                    <img src="entrega-rapida.jpg" alt="Entrega rápida salgados Vale do Paraíba" class="diferencial-imagem">
+                    <img src="entrega-rapida.jpg" alt="Entrega rápida salgados Vale do Paraíba" class="diferencial-imagem" loading="lazy">
                     <h3>Entrega Rápida</h3>
                     <p>Produção sob demanda com prazos ágeis. Entregamos frescos e prontos para esquentar em toda a região.</p>
                 </div>
                 <div class="diferencial-card">
-                    <img src="precos-competitivos.jpg" alt="Preços competitivos atacado salgados" class="diferencial-imagem">
+                    <img src="precos-competitivos.jpg" alt="Preços competitivos atacado salgados" class="diferencial-imagem" loading="lazy">
                     <h3>Preços Competitivos</h3>
                     <p>Oferecemos as melhores condições para compras em atacado, sem comprometer a qualidade dos nossos produtos.</p>
                 </div>
                 <div class="diferencial-card">
-                    <img src="variedade-sabores.jpg" alt="Variedade de sabores salgados para festas" class="diferencial-imagem">
+                    <img src="variedade-sabores.jpg" alt="Variedade de sabores salgados para festas" class="diferencial-imagem" loading="lazy">
                     <h3>Variedade de Sabores</h3>
                     <p>Diversas opções de salgados para atender todos os paladares e necessidades do seu evento ou estabelecimento.</p>
                 </div>
                 <div class="diferencial-card">
-                    <img src="atendimento-personalizado.jpg" alt="Atendimento personalizado salgados Caçapava" class="diferencial-imagem">
+                    <img src="atendimento-personalizado.jpg" alt="Atendimento personalizado salgados Caçapava" class="diferencial-imagem" loading="lazy">
                     <h3>Atendimento Personalizado</h3>
                     <p>Equipe dedicada pronta para ajudar com sugestões, quantidades e personalizações para atender suas necessidades específicas.</p>
                 </div>
@@ -1125,14 +1115,13 @@
         </div>
     </section>
 
-    <!-- CONTATO MELHORADO -->
+    <!-- CONTATO -->
     <section class="contato" id="contato">
         <div class="container">
             <h2 class="section-title">Entre em Contato</h2>
             <p class="section-subtitle">Estamos prontos para atender você! Fale conosco e faça seu orçamento.</p>
             
             <div class="contato-content">
-                <!-- Informações de Contato -->
                 <div class="contato-info">
                     <h3><i class="fas fa-headset"></i> Fale Conosco</h3>
                     
@@ -1183,7 +1172,6 @@
                         </div>
                     </div>
 
-                    <!-- CTA WhatsApp -->
                     <div class="whatsapp-cta">
                         <h4><i class="fab fa-whatsapp"></i> Orçamento Rápido</h4>
                         <p>Clique abaixo e solicite seu orçamento diretamente pelo WhatsApp</p>
@@ -1194,7 +1182,6 @@
                     </div>
                 </div>
 
-                <!-- Mapa e Área de Atendimento -->
                 <div class="contato-mapa">
                     <div class="area-atendimento">
                         <h4>🏠 Área de Atendimento</h4>
@@ -1217,7 +1204,6 @@
                 </div>
             </div>
 
-            <!-- Destaque Final -->
             <div class="contato-destaque">
                 <h3>Pronto para Saborear Nossos Salgados?</h3>
                 <p>Entre em contato agora mesmo e faça seu pedido. Qualidade garantida e preço competitivo!</p>
@@ -1242,7 +1228,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="logo.jpg" alt="Coxinhas & Cia Salgados Artesanais">
+                        <img src="logo.jpg" alt="Coxinhas & Cia Salgados Artesanais" loading="lazy">
                         <div>
                             <h4>Coxinhas & Cia</h4>
                             <p>Salgados Artesanais</p>
@@ -1254,16 +1240,16 @@
                 <div class="footer-section">
                     <h4>Links Rápidos</h4>
                     <ul>
-                        <li><a onclick="scrollToSection('home')" title="Home Coxinhas & Cia">Home</a></li>
-                        <li><a onclick="scrollToSection('produtos')" title="Produtos salgados">Produtos</a></li>
-                        <li><a onclick="scrollToSection('diferenciais')" title="Por que escolher">Por Que Escolher</a></li>
-                        <li><a onclick="scrollToSection('contato')" title="Contato Coxinhas & Cia">Contato</a></li>
+                        <li><a onclick="scrollToSection('home')" role="button" tabindex="0">Home</a></li>
+                        <li><a onclick="scrollToSection('produtos')" role="button" tabindex="0">Produtos</a></li>
+                        <li><a onclick="scrollToSection('diferenciais')" role="button" tabindex="0">Por Que Escolher</a></li>
+                        <li><a onclick="scrollToSection('contato')" role="button" tabindex="0">Contato</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contato</h4>
-                    <p>Telefone: <a href="tel:5512992529335" title="Ligar para Coxinhas & Cia">(12) 99252-9335</a></p>
-                    <p>Email: <a href="mailto:contato@coxinhasecia.com.br" title="Email Coxinhas & Cia">contato@coxinhasecia.com.br</a></p>
+                    <p>Telefone: <a href="tel:5512992529335">(12) 99252-9335</a></p>
+                    <p>Email: <a href="mailto:contato@coxinhasecia.com.br">contato@coxinhasecia.com.br</a></p>
                     <p>Localização: Caçapava, SP</p>
                     <p>Atendemos: Todo Vale do Paraíba</p>
                 </div>
@@ -1279,14 +1265,14 @@
             <div class="footer-bottom">
                 <p>&copy; 2024 Coxinhas & Cia. Todos os direitos reservados.</p>
                 <div class="footer-links">
-                    <a href="#" title="Política de Privacidade">Política de Privacidade</a>
-                    <a href="#" title="Termos de Serviço">Termos de Serviço</a>
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Termos de Serviço</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- CONTEÚDO OCULTO PARA SEO (Google vê, usuários não) -->
+    <!-- CONTEÚDO OCULTO PARA SEO -->
     <div style="display: none;" aria-hidden="true">
         <h2>Coxinhas & Cia - Salgados para Festas em Caçapava</h2>
         <p>Coxinhas & Cia é uma empresa familiar de Caçapava especializada em salgados artesanais para festas e atacado. Produzimos coxinhas, risoles, bolinha de queijo, costela com queijo, churros, kibe, enroladinho de salsicha e bolinho de carne seca. Atendemos toda a região do Vale do Paraíba incluindo Taubaté, São José dos Campos, Jacareí e Pindamonhangaba. Nossos salgados são 100% artesanais, feitos com ingredientes selecionados e entregues congelados prontos para esquentar e servir. Somos a melhor opção para festas, eventos, bares, lanchonetes, buffets, restaurantes e revenda na região de Caçapava e Vale do Paraíba. Entre em contato pelo WhatsApp (12) 99252-9335 para orçamento de salgados para festas.</p>
@@ -1302,6 +1288,16 @@
 
         menuToggle.addEventListener('click', function() {
             nav.classList.toggle('mobile-active');
+            // Muda o ícone do menu
+            this.textContent = nav.classList.contains('mobile-active') ? '✕' : '☰';
+        });
+
+        // Fecha o menu ao clicar fora
+        document.addEventListener('click', function(event) {
+            if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+                nav.classList.remove('mobile-active');
+                menuToggle.textContent = '☰';
+            }
         });
 
         // Scroll suave
@@ -1310,6 +1306,7 @@
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
                 nav.classList.remove('mobile-active');
+                menuToggle.textContent = '☰';
             }
         }
 
@@ -1317,7 +1314,6 @@
         function openWhatsApp(origem) {
             let mensagem = "Olá! Gostaria de solicitar um orçamento de salgados para festas em Caçapava.";
             
-            // Mensagem personalizada baseada na origem do clique
             if (origem === 'orcamento_header') {
                 mensagem = "Olá! Gostaria de solicitar um orçamento de salgados para festas. (Cliquei no cabeçalho)";
             } else if (origem === 'orcamento_hero') {
@@ -1327,6 +1323,17 @@
             const whatsappUrl = `https://wa.me/5512992529335?text=${encodeURIComponent(mensagem)}`;
             window.open(whatsappUrl, '_blank');
         }
+
+        // Carregamento otimizado de imagens
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                });
+            });
+        });
     </script>
 </body>
 </html>
